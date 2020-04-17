@@ -6,7 +6,9 @@
       "lint": "tslint --project \"tsconfig.json\"",
       "start": "ts-node src/index.ts",
       "start:dev": "nodemon --config nodemon.json",
-      "test": "nodemon --config nodemon.test.json"
+      "test": "nodemon --config nodemon.test.json",
+      "clean": "rm -rf dist && mkdir dist",
+      "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
    },
    "_moduleAliases": {
       "@daos": "dist/daos",
