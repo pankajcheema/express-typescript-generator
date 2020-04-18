@@ -44,6 +44,10 @@ createConnection().then(async connection => {
 }).catch(error => console.log(error));
 
 const port = Number(process.env.PORT || 3000);
+console.log("port " + port)
 app.listen(port, () => {
-    logger.info('Express server started on port: ' + port);
+    console.log('Express server started on port: ' + port);
 });
+
+console.log("panka00000j")
+logger.info("server")
