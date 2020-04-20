@@ -10,6 +10,9 @@ const fs = require('fs');
 typeorm_1.createConnection().then((connection) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
 })).catch(error => console.log(error));
 const port = Number(process.env.PORT || 3000);
+console.log("port " + port);
 _server_1.default.listen(port, () => {
-    Logger_1.default.info('Express server started on port: ' + port);
+    console.log('Express server started on port: ' + port);
 });
+console.log("panka00000j");
+Logger_1.default.info("server");

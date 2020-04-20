@@ -4,6 +4,7 @@ import { ParamsDictionary } from 'express-serve-static-core';
 
 import UserDao from '@daos/User/UserDao.mock';
 import { paramMissingError } from '@shared/constants';
+import { UserController } from '../controllers/UserControllers';
 
 // Init shared
 const router = Router();
@@ -16,6 +17,8 @@ const userDao = new UserDao();
 
 router.get('/all', async (req: Request, res: Response) => {
     const users = await userDao.getAll();
+    const usercnt = new UserController();
+    usercnt.test();
     return res.status(OK).json({ users });
 });
 
