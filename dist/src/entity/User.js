@@ -36,3 +36,4 @@ User = tslib_1.__decorate([
     typeorm_1.Entity()
 ], User);
 exports.User = User;
+//# sourceMappingURL=User.js.map

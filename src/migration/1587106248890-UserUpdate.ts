@@ -22,6 +22,18 @@ export class UserUpdate1587106248890 implements MigrationInterface {
                 {
                     name: "age",
                     type: "int",
+                },
+                {
+                    name: "created_at",
+                    type: "date",
+                },
+                {
+                    name: "updated_at",
+                    type: "date",
+                },
+                {
+                    name: "version",
+                    type: "int"
                 }
             ]
         }), true)

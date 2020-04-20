@@ -48,3 +48,4 @@ class UserUpdate1587106248890 {
     }
 }
 exports.UserUpdate1587106248890 = UserUpdate1587106248890;
+//# sourceMappingURL=1587106248890-UserUpdate.js.map
