@@ -4,9 +4,19 @@ const tslib_1 = require("tslib");
 const typeorm_1 = require("typeorm");
 class Database {
     TypeormConnection() {
-        typeorm_1.createConnection().then((connection) => tslib_1.__awaiter(this, void 0, void 0, function* () {
-            console.log("connection created");
-        })).catch(error => console.log(error));
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            if (!typeorm_1.Connection) {
+                typeorm_1.createConnection().then((connection) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                    return connection;
+                })).catch(error => {
+                    console.log(error);
+                    return error;
+                });
+            }
+            else {
+                console.log("connection altedy created");
+            }
+        });
     }
     MysqlNativeConnection() {
         console.log("write mysql function here");

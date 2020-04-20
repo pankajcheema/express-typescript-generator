@@ -1,7 +1,7 @@
 import app from '@server';
 class UserController {
     constructor() {
-        console.log("constructer called")
+        console.log("constructer calledddd")
 
     }
     async test(): Promise<void> {
