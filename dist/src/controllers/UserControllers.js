@@ -12,5 +12,4 @@ class UserController {
     }
 }
 exports.UserController = UserController;
-module.exports = UserController;
 //# sourceMappingURL=UserControllers.js.map

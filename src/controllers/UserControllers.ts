@@ -1,4 +1,4 @@
-export class UserController {
+class UserController {
     constructor() {
         console.log("constructer called")
     }
@@ -7,4 +7,4 @@ export class UserController {
     }
 }
 
-module.exports = UserController;
+export { UserController }

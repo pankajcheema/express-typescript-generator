@@ -12,4 +12,3 @@ class UserController {
     }
 }
 exports.UserController = UserController;
-module.exports = UserController;
