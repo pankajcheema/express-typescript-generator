@@ -1,10 +1,14 @@
-import { createConnection } from "typeorm";
+import { createConnection, Connection } from "typeorm";
 class Database {
-    TypeormConnection(): void {
+    async TypeormConnection(): Promise<Connection | any> {
         createConnection().then(async connection => {
 
-            console.log("connection created");
-        }).catch(error => console.log(error));
+            return connection
+        }).catch(error => {
+            console.log(error);
+            return error;
+
+        });
     }
     MysqlNativeConnection(): void {
         console.log("write mysql function here");

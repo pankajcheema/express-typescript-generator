@@ -8,6 +8,9 @@ class Database {
             console.log("connection created");
         })).catch(error => console.log(error));
     }
+    MysqlNativeConnection() {
+        console.log("write mysql function here");
+    }
 }
 exports.Database = Database;
 //# sourceMappingURL=db.js.map
