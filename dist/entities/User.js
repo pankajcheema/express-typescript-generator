@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class User {
     constructor(nameOrUser, email, id) {
         if (typeof nameOrUser === 'string') {
@@ -14,4 +12,4 @@ class User {
         }
     }
 }
-exports.default = User;
+export default User;

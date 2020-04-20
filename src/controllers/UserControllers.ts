@@ -1,4 +1,3 @@
-import app from '@server';
 class UserController {
     constructor() {
         console.log("constructer calledddd")

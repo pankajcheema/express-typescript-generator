@@ -1,12 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const winston_1 = require("winston");
-const { File, Console } = winston_1.transports;
-const logger = winston_1.createLogger({
+import { createLogger, format, transports } from 'winston';
+const { File, Console } = transports;
+const logger = createLogger({
     level: 'info',
 });
 if (process.env.NODE_ENV === 'production') {
-    const fileFormat = winston_1.format.combine(winston_1.format.timestamp(), winston_1.format.json());
+    const fileFormat = format.combine(format.timestamp(), format.json());
     const errTransport = new File({
         filename: './logs/error.log',
         format: fileFormat,
@@ -20,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     logger.add(infoTransport);
 }
 else {
-    const errorStackFormat = winston_1.format((info) => {
+    const errorStackFormat = format((info) => {
         if (info.stack) {
             console.log(info.stack);
             return false;
@@ -28,8 +26,8 @@ else {
         return info;
     });
     const consoleTransport = new Console({
-        format: winston_1.format.combine(winston_1.format.colorize(), winston_1.format.simple(), errorStackFormat()),
+        format: format.combine(format.colorize(), format.simple(), errorStackFormat()),
     });
     logger.add(consoleTransport);
 }
-exports.default = logger;
+export default logger;

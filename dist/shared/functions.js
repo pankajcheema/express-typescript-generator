@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const Logger_1 = tslib_1.__importDefault(require("./Logger"));
-exports.pErr = (err) => {
+import logger from './Logger';
+export const pErr = (err) => {
     if (err) {
-        Logger_1.default.error(err);
+        logger.error(err);
     }
 };
-exports.getRandomInt = () => {
+export const getRandomInt = () => {
     return Math.floor(Math.random() * 1000000000000);
 };

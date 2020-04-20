@@ -1,31 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
 class UserDao {
-    getOne(email) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return [];
-        });
+    async getOne(email) {
+        return [];
     }
-    getAll() {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return [];
-        });
+    async getAll() {
+        return [];
     }
-    add(user) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return {};
-        });
+    async add(user) {
+        return {};
     }
-    update(user) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return {};
-        });
+    async update(user) {
+        return {};
     }
-    delete(id) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return {};
-        });
+    async delete(id) {
+        return {};
     }
 }
-exports.default = UserDao;
+export default UserDao;
