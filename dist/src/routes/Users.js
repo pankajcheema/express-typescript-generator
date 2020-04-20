@@ -10,8 +10,7 @@ const router = express_1.Router();
 const userDao = new UserDao_mock_1.default();
 router.get('/all', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const users = yield userDao.getAll();
-    const usercnt = new UserControllers_1.UserController();
-    usercnt.test();
+    UserControllers_1.usercnt.test();
     return res.status(http_status_codes_1.OK).json({ users });
 }));
 router.post('/add', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {

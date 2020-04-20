@@ -11,5 +11,6 @@ class UserController {
         });
     }
 }
-exports.UserController = UserController;
+const usercnt = new UserController();
+exports.usercnt = usercnt;
 //# sourceMappingURL=UserControllers.js.map
