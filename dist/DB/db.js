@@ -1,20 +1,20 @@
-import { createConnection, Connection } from "typeorm";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
 class Database {
-    async TypeormConnection() {
-        if (!Connection) {
-            createConnection().then(async (connection) => {
-                return connection;
-            }).catch(error => {
+    TypeormConnection() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            typeorm_1.createConnection().then((connection) => tslib_1.__awaiter(this, void 0, void 0, function* () {
+                console.log("connection created");
+            })).catch(error => {
                 console.log(error);
-                return error;
+                process.exit(0);
             });
-        }
-        else {
-            console.log("connection altedy created");
-        }
+        });
     }
     MysqlNativeConnection() {
         console.log("write mysql function here");
     }
 }
-export { Database };
+exports.Database = Database;

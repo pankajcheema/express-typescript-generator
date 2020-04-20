@@ -1,40 +1,43 @@
-import { Router } from 'express';
-import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-import UserDao from '@daos/User/UserDao.mock';
-import { paramMissingError } from '@shared/constants';
-import { UserController } from '../controllers/UserControllers';
-const usercnt = new UserController();
-const router = Router();
-const userDao = new UserDao();
-router.get('/all', async (req, res) => {
-    const users = await userDao.getAll();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const express_1 = require("express");
+const http_status_codes_1 = require("http-status-codes");
+const UserDao_mock_1 = tslib_1.__importDefault(require("@daos/User/UserDao.mock"));
+const constants_1 = require("@shared/constants");
+const UserControllers_1 = require("../controllers/UserControllers");
+const usercnt = new UserControllers_1.UserController();
+const router = express_1.Router();
+const userDao = new UserDao_mock_1.default();
+router.get('/all', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+    const users = yield userDao.getAll();
     usercnt.test();
-    return res.status(OK).json({ users });
-});
-router.post('/add', async (req, res) => {
+    return res.status(http_status_codes_1.OK).json({ users });
+}));
+router.post('/add', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const { user } = req.body;
     if (!user) {
-        return res.status(BAD_REQUEST).json({
-            error: paramMissingError,
+        return res.status(http_status_codes_1.BAD_REQUEST).json({
+            error: constants_1.paramMissingError,
         });
     }
-    await userDao.add(user);
-    return res.status(CREATED).end();
-});
-router.put('/update', async (req, res) => {
+    yield userDao.add(user);
+    return res.status(http_status_codes_1.CREATED).end();
+}));
+router.put('/update', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const { user } = req.body;
     if (!user) {
-        return res.status(BAD_REQUEST).json({
-            error: paramMissingError,
+        return res.status(http_status_codes_1.BAD_REQUEST).json({
+            error: constants_1.paramMissingError,
         });
     }
     user.id = Number(user.id);
-    await userDao.update(user);
-    return res.status(OK).end();
-});
-router.delete('/delete/:id', async (req, res) => {
+    yield userDao.update(user);
+    return res.status(http_status_codes_1.OK).end();
+}));
+router.delete('/delete/:id', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    await userDao.delete(Number(id));
-    return res.status(OK).end();
-});
-export default router;
+    yield userDao.delete(Number(id));
+    return res.status(http_status_codes_1.OK).end();
+}));
+exports.default = router;

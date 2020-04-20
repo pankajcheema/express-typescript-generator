@@ -1,24 +1,26 @@
-import { __decorate, __metadata } from "tslib";
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
 let User = class User {
 };
-__decorate([
-    PrimaryGeneratedColumn(),
-    __metadata("design:type", Number)
+tslib_1.__decorate([
+    typeorm_1.PrimaryGeneratedColumn(),
+    tslib_1.__metadata("design:type", Number)
 ], User.prototype, "id", void 0);
-__decorate([
-    Column(),
-    __metadata("design:type", String)
+tslib_1.__decorate([
+    typeorm_1.Column(),
+    tslib_1.__metadata("design:type", String)
 ], User.prototype, "firstName", void 0);
-__decorate([
-    Column(),
-    __metadata("design:type", String)
+tslib_1.__decorate([
+    typeorm_1.Column(),
+    tslib_1.__metadata("design:type", String)
 ], User.prototype, "lastName", void 0);
-__decorate([
-    Column(),
-    __metadata("design:type", Number)
+tslib_1.__decorate([
+    typeorm_1.Column(),
+    tslib_1.__metadata("design:type", Number)
 ], User.prototype, "age", void 0);
-User = __decorate([
-    Entity()
+User = tslib_1.__decorate([
+    typeorm_1.Entity()
 ], User);
-export { User };
+exports.User = User;

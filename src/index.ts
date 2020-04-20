@@ -9,8 +9,9 @@ import "reflect-metadata";
 import { Database } from './DB/db'
 const fs = require('fs');
 const database = new Database();
-const connection = database.TypeormConnection();
-console.log("printing_connection " + connection);
+(async () => {
+    await database.TypeormConnection();
+})();
 
 
 
