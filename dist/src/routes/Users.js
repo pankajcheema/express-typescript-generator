@@ -6,11 +6,12 @@ const http_status_codes_1 = require("http-status-codes");
 const UserDao_mock_1 = tslib_1.__importDefault(require("@daos/User/UserDao.mock"));
 const constants_1 = require("@shared/constants");
 const UserControllers_1 = require("../controllers/UserControllers");
+const usercnt = new UserControllers_1.UserController();
 const router = express_1.Router();
 const userDao = new UserDao_mock_1.default();
 router.get('/all', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
     const users = yield userDao.getAll();
-    UserControllers_1.usercnt.test();
+    usercnt.test();
     return res.status(http_status_codes_1.OK).json({ users });
 }));
 router.post('/add', (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
