@@ -8,9 +8,7 @@ require("reflect-metadata");
 const db_1 = require("./DB/db");
 const fs = require('fs');
 const database = new db_1.Database();
-(() => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
-    yield database.TypeormConnection();
-}))();
+database.TypeormConnection();
 const port = Number(process.env.PORT || 3000);
 console.log("port " + port);
 _server_1.default.listen(port, () => {

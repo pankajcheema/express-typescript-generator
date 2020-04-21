@@ -9,13 +9,9 @@ import "reflect-metadata";
 import { Database } from './DB/db'
 const fs = require('fs');
 const database = new Database();
-(async () => {
-    await database.TypeormConnection();
-})();
 
 
-
-
+database.TypeormConnection();
 
 const port = Number(process.env.PORT || 3000);
 console.log("port " + port)

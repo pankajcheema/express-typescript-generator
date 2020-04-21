@@ -1,7 +1,7 @@
 import { getConnection, Connection } from "typeorm";
-import { Category } from '../entity/Cateogary';
-import { Question } from '../entity/Question';
+
 import { User } from '../entity/User';
+var mysql = require('mysql');
 var fs = require('fs');
 
 // getting dbs connection here 
@@ -42,7 +42,7 @@ class TestController {
             userarr.push(user);
         }
         console.log("waitong for promises")
-        const promise = coon.manager.save(userarr);
+        const promise = await coon.manager.save(userarr);
         console.log("all done for promises")
         const tm2 = new Date().getTime()
         console.log("time after loop start " + tm2);
@@ -51,14 +51,14 @@ class TestController {
 
     }
     async readingMayToMay(): Promise<void> {
-        const coon = getConnection();
-        const categoriesWithQuestions = await coon
-            .getRepository(Category)
-            .createQueryBuilder("category")
-            .leftJoinAndSelect("category.questions", "question")
-            .getMany();
-        console.log(categoriesWithQuestions);
-        console.log("records fetched");
+        // const coon = getConnection();
+        // const categoriesWithQuestions = await coon
+        //     .getRepository(Category)
+        //     .createQueryBuilder("category")
+        //     .leftJoinAndSelect("category.questions", "question")
+        //     .getMany();
+        // console.log(categoriesWithQuestions);
+        // console.log("records fetched");
 
 
     }
@@ -85,6 +85,32 @@ class TestController {
         let diff = tm2 - tm;
         console.log("diffis " + diff);
         console.log('time ' + String(tm2 - tm))
+    }
+    async Native(): Promise<void> {
+        const db = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "pankajcheema",
+            database: "test",
+        });
+
+        let vals = [];
+        var i;
+        let init = new Date();
+        for (i = 0; i < 30000; i++) {
+            vals.push(["Diljot", "Singh", 2]);
+        }
+
+        let query = "INSERT INTO test (firstName, lastName, age) VALUES ?";
+        let start = new Date().getTime();
+        console.log("start " + start)
+        db.query(query, [vals], function (err: any, res: any) {
+            let end = new Date().getTime();
+            console.log(query);
+            console.log(err);
+            console.log(end)
+            // res.json({ loop: start - init, time: end - start });
+        });
     }
 }
 

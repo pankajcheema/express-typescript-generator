@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const typeorm_1 = require("typeorm");
-const Cateogary_1 = require("../entity/Cateogary");
 const User_1 = require("../entity/User");
+var mysql = require('mysql');
 var fs = require('fs');
 class TestController {
     constructor() {
@@ -27,7 +27,7 @@ class TestController {
                 userarr.push(user);
             }
             console.log("waitong for promises");
-            const promise = coon.manager.save(userarr);
+            const promise = yield coon.manager.save(userarr);
             console.log("all done for promises");
             const tm2 = new Date().getTime();
             console.log("time after loop start " + tm2);
@@ -37,14 +37,6 @@ class TestController {
     }
     readingMayToMay() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            const coon = typeorm_1.getConnection();
-            const categoriesWithQuestions = yield coon
-                .getRepository(Cateogary_1.Category)
-                .createQueryBuilder("category")
-                .leftJoinAndSelect("category.questions", "question")
-                .getMany();
-            console.log(categoriesWithQuestions);
-            console.log("records fetched");
         });
     }
     Diljot() {
@@ -64,7 +56,36 @@ class TestController {
             yield coon.manager.save(userarr);
             console.log('all done for promises');
             const tm2 = new Date().getTime();
+            console.log("start time " + tm);
+            console.log("end time " + tm2);
+            let diff = tm2 - tm;
+            console.log("diffis " + diff);
             console.log('time ' + String(tm2 - tm));
+        });
+    }
+    Native() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const db = mysql.createConnection({
+                host: "localhost",
+                user: "root",
+                password: "pankajcheema",
+                database: "test",
+            });
+            let vals = [];
+            var i;
+            let init = new Date();
+            for (i = 0; i < 30000; i++) {
+                vals.push(["Diljot", "Singh", 2]);
+            }
+            let query = "INSERT INTO test (firstName, lastName, age) VALUES ?";
+            let start = new Date().getTime();
+            console.log("start " + start);
+            db.query(query, [vals], function (err, res) {
+                let end = new Date().getTime();
+                console.log(query);
+                console.log(err);
+                console.log(end);
+            });
         });
     }
 }
