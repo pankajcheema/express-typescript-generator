@@ -25,6 +25,18 @@ class TestController {
         await coon.manager.save(question);
 
     }
+    async readingMayToMay(): Promise<void> {
+        const coon = getConnection();
+        const categoriesWithQuestions = await coon
+            .getRepository(Category)
+            .createQueryBuilder("category")
+            .leftJoinAndSelect("category.questions", "question")
+            .getMany();
+        console.log(categoriesWithQuestions);
+        console.log("records fetched");
+
+
+    }
 }
 
 export { TestController }

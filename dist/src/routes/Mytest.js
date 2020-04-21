@@ -14,3 +14,4 @@ router.get('/read-many-to-many', (req, res) => tslib_1.__awaiter(void 0, void 0,
     test.readingMayToMay();
 }));
 exports.default = router;
+//# sourceMappingURL=Mytest.js.map
