@@ -12,6 +12,7 @@ const database = new Database();
 
 
 database.TypeormConnection();
+database.MysqlNativeConnection();
 
 const port = Number(process.env.PORT || 3000);
 console.log("port " + port)

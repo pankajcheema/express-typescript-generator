@@ -9,6 +9,7 @@ const db_1 = require("./DB/db");
 const fs = require('fs');
 const database = new db_1.Database();
 database.TypeormConnection();
+database.MysqlNativeConnection();
 const port = Number(process.env.PORT || 3000);
 console.log("port " + port);
 _server_1.default.listen(port, () => {

@@ -1,4 +1,6 @@
 import { createConnection, Connection } from "typeorm";
+const mysql = require('mysql');
+
 class Database {
     async TypeormConnection(): Promise<void> {
         createConnection().then(async connection => {
@@ -12,6 +14,14 @@ class Database {
     }
     MysqlNativeConnection(): void {
         console.log("write mysql function here");
+        const db = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "pankajcheema",
+            database: "test",
+        });
+        console.log("printing db instance " + db)
+
     }
 }
 export { Database }
