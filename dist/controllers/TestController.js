@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const typeorm_1 = require("typeorm");
 const Cateogary_1 = require("../entity/Cateogary");
-const Question_1 = require("../entity/Question");
+const User_1 = require("../entity/User");
+var fs = require('fs');
 class TestController {
     constructor() {
         console.log("constructer calledddd");
@@ -11,16 +12,27 @@ class TestController {
     testingMayToMay() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const coon = typeorm_1.getConnection();
-            console.log("controller working");
-            const category1 = new Cateogary_1.Category();
-            category1.name = "animals";
-            const category2 = new Cateogary_1.Category();
-            category2.name = "zoo";
-            const question = new Question_1.Question();
-            question.text = "what is your name";
-            question.title = "test questio";
-            question.categories = [category1, category2];
-            yield coon.manager.save(question);
+            var i;
+            const userarr = [];
+            const tm = new Date().getTime();
+            fs.writeFileSync('date.txt', tm);
+            console.log("time befor loop start  " + tm);
+            for (i = 0; i < 30000; i++) {
+                console.log("Inserting a new user into the database...");
+                console.log("loop for i " + i);
+                const user = new User_1.User();
+                user.firstName = "Timber";
+                user.lastName = "Saw";
+                user.age = 25;
+                userarr.push(user);
+            }
+            console.log("waitong for promises");
+            const promise = coon.manager.save(userarr);
+            console.log("all done for promises");
+            const tm2 = new Date().getTime();
+            console.log("time after loop start " + tm2);
+            const diff = tm2 - tm;
+            console.log("diff is " + diff);
         });
     }
     readingMayToMay() {
@@ -33,6 +45,26 @@ class TestController {
                 .getMany();
             console.log(categoriesWithQuestions);
             console.log("records fetched");
+        });
+    }
+    Diljot() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const coon = typeorm_1.getConnection();
+            var i;
+            const userarr = [];
+            for (i = 0; i < 30000; i++) {
+                const user = new User_1.User();
+                user.firstName = 'Timber';
+                user.lastName = 'Saw';
+                user.age = 25;
+                userarr.push(user);
+            }
+            const tm = new Date().getTime();
+            console.log('time befor loop start  ' + tm);
+            yield coon.manager.save(userarr);
+            console.log('all done for promises');
+            const tm2 = new Date().getTime();
+            console.log('time ' + String(tm2 - tm));
         });
     }
 }

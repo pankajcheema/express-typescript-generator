@@ -18,7 +18,7 @@ const router = Router();
 router.get('/testing-many-to-many', async (req: Request, res: Response) => {
 
 
-    test.testingMayToMay();
+    test.Diljot();
     return res.status(OK).json({ "res": "done" });
 });
 router.get('/read-many-to-many', async (req: Request, res: Response) => {
