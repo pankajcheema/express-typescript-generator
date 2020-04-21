@@ -9,7 +9,7 @@ class TestController {
         console.log("constructer calledddd")
 
     }
-    async testing(): Promise<void> {
+    async testingMayToMay(): Promise<void> {
         const coon = getConnection();
         console.log("controller working");
         const category1 = new Category();

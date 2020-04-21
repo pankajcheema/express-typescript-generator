@@ -15,10 +15,10 @@ const router = Router();
  *                      Get All Users - "GET /api/users/all"
  ******************************************************************************/
 
-router.get('/testing-relation', async (req: Request, res: Response) => {
+router.get('/testing-many-to-many', async (req: Request, res: Response) => {
 
 
-    test.testing();
+    test.testingMayToMay();
     return res.status(OK).json({ "res": "done" });
 });
 
