@@ -117,6 +117,9 @@ class TestController {
             // res.json({ loop: start - init, time: end - start });
         });
     }
+    async getPosteddat(data: any): Promise<void> {
+        console.log(data);
+    }
 }
 
 export { TestController }

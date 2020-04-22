@@ -25,6 +25,10 @@ router.get('/read-many-to-many', async (req: Request, res: Response) => {
     test.readingMayToMay();
 });
 
+router.post('/post-data', async (req: Request, res: Response) => {
+    test.getPosteddat(req.body);
+});
+
 
 
 
