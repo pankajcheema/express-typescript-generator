@@ -92,5 +92,11 @@ class TestController {
             });
         });
     }
+    getPosteddat(data) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            console.log(data);
+            console.log("data coming here");
+        });
+    }
 }
 exports.TestController = TestController;

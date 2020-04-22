@@ -27,6 +27,7 @@ router.get('/read-many-to-many', async (req: Request, res: Response) => {
 
 router.post('/post-data', async (req: Request, res: Response) => {
     test.getPosteddat(req.body);
+    return res.status(OK).json({ "res": "done" });
 });
 
 

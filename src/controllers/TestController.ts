@@ -3,11 +3,14 @@ import { getConnection, Connection } from "typeorm";
 import { User } from '../entity/User';
 var mysql = require('mysql');
 var fs = require('fs');
-import { Database } from '../DB/db'
+import { Database } from '../DB/db';
+import { ReqBody } from '../Request/Test';
 
 const database = Database.getDBInstance();
 const db = database.getMysqlNativeConnection();
 console.log("printing db on testcontroller" + db);
+
+
 
 // getting dbs connection here 
 class TestController {
@@ -117,8 +120,12 @@ class TestController {
             // res.json({ loop: start - init, time: end - start });
         });
     }
-    async getPosteddat(data: any): Promise<void> {
+    async getPosteddat(data: ReqBody): Promise<void> {
         console.log(data);
+        console.log("data coming here");
+
+
+
     }
 }
 
