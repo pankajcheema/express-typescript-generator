@@ -17,6 +17,7 @@
       "@server": "dist/Server"
    },
    "dependencies": {
+      "@hapi/joi": "^17.1.1",
       "@types/mysql": "^2.15.10",
       "command-line-args": "^5.1.1",
       "cookie-parser": "^1.4.5",

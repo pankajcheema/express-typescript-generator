@@ -4,7 +4,8 @@ import { User } from '../entity/User';
 var mysql = require('mysql');
 var fs = require('fs');
 import { Database } from '../DB/db';
-import { ReqBody } from '../Request/Test';
+import testschema from '../Request/Test';
+
 
 const database = Database.getDBInstance();
 const db = database.getMysqlNativeConnection();
@@ -120,9 +121,13 @@ class TestController {
             // res.json({ loop: start - init, time: end - start });
         });
     }
-    async getPosteddat(data: ReqBody): Promise<void> {
+    async getPosteddat(data: any): Promise<void> {
         console.log(data);
         console.log("data coming here");
+
+
+
+
 
 
 

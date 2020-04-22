@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const Joi = require('@hapi/joi');
 const testschema = Joi.object({
     username: Joi.string()
@@ -5,6 +7,6 @@ const testschema = Joi.object({
         .min(3)
         .max(30)
         .required()
-})
-
-export default testschema;
+});
+exports.default = testschema;
+//# sourceMappingURL=Test.js.map

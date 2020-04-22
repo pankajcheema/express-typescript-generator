@@ -5,6 +5,7 @@ import { ParamsDictionary } from 'express-serve-static-core';
 import UserDao from '@daos/User/UserDao.mock';
 import { paramMissingError } from '@shared/constants';
 import { TestController } from '../controllers/TestController';
+import testschema from '../Request/Test';
 const test = new TestController(); // usercontroller object 
 // Init shared
 const router = Router();
@@ -26,6 +27,14 @@ router.get('/read-many-to-many', async (req: Request, res: Response) => {
 });
 
 router.post('/post-data', async (req: Request, res: Response) => {
+    const result = testschema.validate(req.body);
+    if (result.error.details.length) {
+        return //error here 
+    } else {
+        continue // continue to call controller
+    }
+    result.
+        console.log("validation result " + result);
     test.getPosteddat(req.body);
     return res.status(OK).json({ "res": "done" });
 });
