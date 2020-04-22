@@ -3,6 +3,11 @@ import { getConnection, Connection } from "typeorm";
 import { User } from '../entity/User';
 var mysql = require('mysql');
 var fs = require('fs');
+import { Database } from '../DB/db'
+
+const database = Database.getDBInstance();
+const db = database.getMysqlNativeConnection();
+console.log("printing db on testcontroller" + db);
 
 // getting dbs connection here 
 class TestController {

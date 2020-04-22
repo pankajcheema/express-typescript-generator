@@ -7,9 +7,9 @@ const Logger_1 = tslib_1.__importDefault(require("@shared/Logger"));
 require("reflect-metadata");
 const db_1 = require("./DB/db");
 const fs = require('fs');
-const database = new db_1.Database();
-database.TypeormConnection();
-database.MysqlNativeConnection();
+const database = db_1.Database.getDBInstance();
+const db = database.getMysqlNativeConnection();
+console.log("printing db on index" + db);
 const port = Number(process.env.PORT || 3000);
 console.log("port " + port);
 _server_1.default.listen(port, () => {

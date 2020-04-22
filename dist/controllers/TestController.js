@@ -5,6 +5,10 @@ const typeorm_1 = require("typeorm");
 const User_1 = require("../entity/User");
 var mysql = require('mysql');
 var fs = require('fs');
+const db_1 = require("../DB/db");
+const database = db_1.Database.getDBInstance();
+const db = database.getMysqlNativeConnection();
+console.log("printing db on testcontroller" + db);
 class TestController {
     constructor() {
         console.log("constructer calledddd");

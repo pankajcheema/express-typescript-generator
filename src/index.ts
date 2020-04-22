@@ -8,11 +8,12 @@ import "reflect-metadata";
 //import { User } from "./entity/User";
 import { Database } from './DB/db'
 const fs = require('fs');
-const database = new Database();
+//db instansiation here 
 
+const database = Database.getDBInstance();
+const db = database.getMysqlNativeConnection();
+console.log("printing db on index" + db)
 
-database.TypeormConnection();
-database.MysqlNativeConnection();
 
 const port = Number(process.env.PORT || 3000);
 console.log("port " + port)
